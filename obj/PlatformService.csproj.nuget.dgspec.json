@@ -1,25 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\NETCORE\\LesJackson\\PlatformService\\PlatformService.csproj": {}
+    "C:\\Users\\tshumaed\\Music\\LesJackson\\PlatformService\\PlatformService.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\NETCORE\\LesJackson\\PlatformService\\PlatformService.csproj": {
+    "C:\\Users\\tshumaed\\Music\\LesJackson\\PlatformService\\PlatformService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\NETCORE\\LesJackson\\PlatformService\\PlatformService.csproj",
+        "projectUniqueName": "C:\\Users\\tshumaed\\Music\\LesJackson\\PlatformService\\PlatformService.csproj",
         "projectName": "PlatformService",
-        "projectPath": "D:\\Projects\\NETCORE\\LesJackson\\PlatformService\\PlatformService.csproj",
+        "projectPath": "C:\\Users\\tshumaed\\Music\\LesJackson\\PlatformService\\PlatformService.csproj",
         "packagesPath": "C:\\Users\\tshumaed\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\NETCORE\\LesJackson\\PlatformService\\obj\\",
+        "outputPath": "C:\\Users\\tshumaed\\Music\\LesJackson\\PlatformService\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\tshumaed\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\tshumaed\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -83,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }
