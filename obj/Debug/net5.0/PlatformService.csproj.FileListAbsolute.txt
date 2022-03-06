@@ -63,3 +63,6 @@ D:\Projects\NETCORE\LesJackson\PlatformService\obj\Debug\net5.0\PlatformService.
 D:\Projects\NETCORE\LesJackson\PlatformService\obj\Debug\net5.0\PlatformService.genruntimeconfig.cache
 D:\Projects\NETCORE\LesJackson\PlatformService\bin\Debug\net5.0\appsettings.Production.json
 D:\Projects\NETCORE\LesJackson\PlatformService\obj\Debug\net5.0\PlatformService.csprojAssemblyReference.cache
+C:\Users\tshumaed\Music\LesJackson\PlatformService\obj\Debug\net5.0\PlatformService.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\obj\Debug\net5.0\ref\PlatformService.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\obj\Debug\net5.0\PlatformService.pdb
