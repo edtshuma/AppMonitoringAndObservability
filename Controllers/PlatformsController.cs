@@ -1,5 +1,4 @@
 
-using System.Collections;
 using System;
 using System.Collections.Generic;
 using AutoMapper;
@@ -9,6 +8,7 @@ using PlatformService.Models;
 using PlatformsService.SyncDataService.Http;
 using System.Threading.Tasks;
 using PlatformService.Dtos;
+using PlatformService.AsyncDataServices;
 
 namespace PlatformService
 {
@@ -19,15 +19,18 @@ namespace PlatformService
         private readonly IMapper _mapper;
         private IPlatformRepo _repository;
         private readonly ICommandDataClient _commandDataClient;
+        private readonly IMessageBusClient _messageBusClient;
 
         public PlatformsController(IPlatformRepo repository, 
         IMapper mapper,
-        ICommandDataClient commandDataClient)
+        ICommandDataClient commandDataClient,
+        IMessageBusClient messageBusClient)
        {
            _mapper = mapper;
            _repository =repository;
            _commandDataClient = commandDataClient;
-       }
+            _messageBusClient = messageBusClient;
+        }
 
         [HttpGet]
        public ActionResult<IEnumerable<PlatformReadDto>> GetAllPlatforms() {
@@ -60,24 +63,43 @@ namespace PlatformService
 
        [HttpPost]
        public async Task<ActionResult<PlatformCreateDto>> CreatePlatform(PlatformCreateDto platformCreateDto) {
-       
-        var model= _mapper.Map<Platform>(platformCreateDto);
-        _repository.CreatePlatform(model);
-         _repository.SaveChanges();
-         
-         var platformReadDto= _mapper.Map<PlatformReadDto>(model);
-        //where can u access the newly created resiurce >> CreatedAtRoute
-        //name of the route <<GetPlatformById
 
-        try {
-           await _commandDataClient.SendPlatformToCommand(platformReadDto);
+            var model = _mapper.Map<Platform>(platformCreateDto);
+            _repository.CreatePlatform(model);
+            _repository.SaveChanges();
+
+            var platformReadDto = _mapper.Map<PlatformReadDto>(model);
+           //Send Sync message
+            try
+            {
+                await _commandDataClient.SendPlatformToCommand(platformReadDto);
+            }
+
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Could not send synchronoulsy: { ex.Message}");
+            }
+
+            //Send Async message
+            try
+            {
+
+                var platformPublishedDto = _mapper.Map<PlatformPublishedDto>(platformReadDto);
+                platformPublishedDto.Event = "Platform Published";
+                _messageBusClient.PublishNewPlatform(platformPublishedDto);
+            }
+
+            catch (Exception ex)
+            {
+
+                Console.WriteLine($"Could not send asynchronoulsy: { ex.Message}");
+            }
+
+            //where can u access the newly created rsc  >> CreatedAtRoute
+            //name of the route <<GetPlatformById
+            return CreatedAtRoute(nameof(GetPlatformById), new { id = platformReadDto.Id }, platformReadDto);
         }
-
-        catch (Exception ex) {
-          Console.WriteLine($"Could not send asynchronoulsy: { ex.Message}");
-        }      
-        return CreatedAtRoute(nameof(GetPlatformById), new {id=platformReadDto.Id}, platformReadDto);
-       }
 
    }
 }
