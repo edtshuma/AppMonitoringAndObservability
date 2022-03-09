@@ -15,6 +15,7 @@ using PlatformService.Data;
 using PlatformService.Models;
 using PlatformService.SyncDataService.Http;
 using PlatformsService.SyncDataService.Http;
+using PlatformService.AsyncDataServices;
 
 namespace PlatformService
 {
@@ -52,6 +53,7 @@ namespace PlatformService
             services.AddHttpClient<ICommandDataClient, CommandDataClient>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers();
+            services.AddSingleton<IMessageBusClient, MessageBusClient>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PlatformService", Version = "v1" });
@@ -70,7 +72,7 @@ namespace PlatformService
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlatformService v1"));
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
