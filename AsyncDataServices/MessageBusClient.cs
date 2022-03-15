@@ -15,7 +15,7 @@ namespace PlatformService.AsyncDataServices
         private readonly IConfiguration _configuration;
         private readonly IConnection _connection;
 
-        public IModel _channel { get; }
+        private IModel _channel;
 
         public MessageBusClient(IConfiguration configuration)
         {
