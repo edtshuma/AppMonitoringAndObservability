@@ -108,7 +108,6 @@ C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\runtimes\win
 C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\tshumaed\Music\LesJackson\PlatformService\obj\Debug\net5.0\PlatformService.csproj.AssemblyReference.cache
 C:\Users\tshumaed\Music\LesJackson\PlatformService\obj\Debug\net5.0\PlatformService.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\tshumaed\Music\LesJackson\PlatformService\obj\Debug\net5.0\PlatformService.AssemblyInfoInputs.cache
 C:\Users\tshumaed\Music\LesJackson\PlatformService\obj\Debug\net5.0\PlatformService.AssemblyInfo.cs
@@ -129,3 +128,16 @@ C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\PlatformServ
 C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\ref\PlatformService.dll
 C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\PlatformService.pdb
 C:\Users\tshumaed\Music\LesJackson\PlatformService\obj\Debug\net5.0\PlatformService.genruntimeconfig.cache
+C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\Serilog.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\Serilog.AspNetCore.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\Serilog.Extensions.Hosting.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\Serilog.Extensions.Logging.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\Serilog.Formatting.Compact.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\Serilog.Settings.Configuration.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\Serilog.Sinks.Console.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\Serilog.Sinks.Debug.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\Serilog.Sinks.File.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\Serilog.Sinks.PeriodicBatching.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\bin\Debug\net5.0\Serilog.Sinks.Seq.dll
+C:\Users\tshumaed\Music\LesJackson\PlatformService\obj\Debug\net5.0\PlatformService.csproj.AssemblyReference.cache
