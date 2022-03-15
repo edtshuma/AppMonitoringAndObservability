@@ -146,3 +146,53 @@ System.InvalidOperationException: Unable to resolve service for type 'PlatformSe
 2022-03-15 16:01:25.542 +02:00 [INF] Executed action PlatformService.PlatformsController.CreatePlatform (PlatformService) in 5327.2478ms
 2022-03-15 16:01:25.543 +02:00 [INF] Executed endpoint 'PlatformService.PlatformsController.CreatePlatform (PlatformService)'
 2022-03-15 16:01:25.545 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/api/platforms/ application/json 74 - 201 - application/json;+charset=utf-8 5408.0429ms
+2022-03-15 16:24:45.986 +02:00 [INF] Application is shutting down...
+2022-03-15 16:25:16.226 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMem 
+2022-03-15 16:25:16.562 +02:00 [INF] Saved 4 entities to in-memory store.
+2022-03-15 16:25:16.617 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-03-15 16:25:16.619 +02:00 [INF] Hosting environment: Development
+2022-03-15 16:25:16.620 +02:00 [INF] Content root path: C:\Users\tshumaed\Music\LesJackson\PlatformService
+2022-03-15 16:25:16.667 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:14367/swagger/index.html - -
+2022-03-15 16:25:16.778 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:14367/swagger/index.html - - - 200 - text/html;charset=utf-8 113.9489ms
+2022-03-15 16:25:17.112 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:14367/swagger/v1/swagger.json - -
+2022-03-15 16:25:17.208 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:14367/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 95.6783ms
+2022-03-15 16:26:58.512 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:14367/api/Platforms - -
+2022-03-15 16:26:58.552 +02:00 [INF] Executing endpoint 'PlatformService.PlatformsController.GetAllPlatforms (PlatformService)'
+2022-03-15 16:26:58.574 +02:00 [INF] Route matched with {action = "GetAllPlatforms", controller = "Platforms"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[PlatformService.Dtos.PlatformReadDto]] GetAllPlatforms() on controller PlatformService.PlatformsController (PlatformService).
+2022-03-15 16:28:53.975 +02:00 [INF] Entity Framework Core 5.0.10 initialized 'AppDbContext' using provider 'Microsoft.EntityFrameworkCore.InMemory' with options: StoreName=InMem 
+2022-03-15 16:28:54.324 +02:00 [INF] Saved 4 entities to in-memory store.
+2022-03-15 16:28:54.372 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-03-15 16:28:54.374 +02:00 [INF] Hosting environment: Development
+2022-03-15 16:28:54.375 +02:00 [INF] Content root path: C:\Users\tshumaed\Music\LesJackson\PlatformService
+2022-03-15 16:28:54.393 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:14367/swagger/index.html - -
+2022-03-15 16:28:54.502 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:14367/swagger/index.html - - - 200 - text/html;charset=utf-8 111.4427ms
+2022-03-15 16:28:54.616 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:14367/swagger/v1/swagger.json - -
+2022-03-15 16:28:54.711 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:14367/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 95.0839ms
+2022-03-15 16:29:03.697 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:14367/api/Platforms - -
+2022-03-15 16:29:03.734 +02:00 [INF] Executing endpoint 'PlatformService.PlatformsController.GetAllPlatforms (PlatformService)'
+2022-03-15 16:29:03.754 +02:00 [INF] Route matched with {action = "GetAllPlatforms", controller = "Platforms"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[PlatformService.Dtos.PlatformReadDto]] GetAllPlatforms() on controller PlatformService.PlatformsController (PlatformService).
+2022-03-15 16:29:14.007 +02:00 [INF] Executed action PlatformService.PlatformsController.GetAllPlatforms (PlatformService) in 10244.7469ms
+2022-03-15 16:29:14.009 +02:00 [INF] Executed endpoint 'PlatformService.PlatformsController.GetAllPlatforms (PlatformService)'
+2022-03-15 16:29:14.014 +02:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null. (Parameter 'logger')
+   at Microsoft.Extensions.Logging.LoggerExtensions.Log(ILogger logger, LogLevel logLevel, EventId eventId, Exception exception, String message, Object[] args)
+   at Microsoft.Extensions.Logging.LoggerExtensions.LogInformation(ILogger logger, String message, Object[] args)
+   at PlatformService.PlatformsController.GetAllPlatforms() in C:\Users\tshumaed\Music\LesJackson\PlatformService\Controllers\PlatformsController.cs:line 43
+   at lambda_method43(Closure , Object , Object[] )
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeNextActionFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2022-03-15 16:29:14.080 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:14367/api/Platforms - - - 500 - text/plain 10382.6896ms
