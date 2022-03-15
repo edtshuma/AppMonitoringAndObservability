@@ -18,7 +18,7 @@ namespace PlatformService
                .Enrich.FromLogContext()
                .WriteTo.Console()
                .WriteTo.Debug(outputTemplate: DateTime.Now.ToString()).WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
-               .WriteTo.Seq("http://localhost:5341/")
+               .WriteTo.Seq("http://10.170.8.204:5341/")
                .CreateLogger();
             CreateHostBuilder(args).Build().Run();
         }
