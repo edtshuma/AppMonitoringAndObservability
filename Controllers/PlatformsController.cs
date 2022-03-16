@@ -31,7 +31,7 @@ namespace PlatformService
        )
        {
            _mapper = mapper;        
-           //_logger = logger;
+           _logger = logger;
            _repository =repository;
            _commandDataClient = commandDataClient;
             _messageBusClient = messageBusClient;
