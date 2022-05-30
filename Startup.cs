@@ -34,18 +34,6 @@ namespace PlatformService
         public void ConfigureServices(IServiceCollection services )
         {
 
-          if (_env.IsProduction()) {
-            Console.WriteLine("Using SqlServerDB");
-            services.AddDbContext<AppDbContext>(opt =>
-            opt.UseSqlServer(Configuration.GetConnectionString("PlatformsConn")));
-
-          }
-          else {
-              Console.WriteLine("Using In-MemoryDB");
-            services.AddDbContext<AppDbContext>(opt =>
-            opt.UseInMemoryDatabase("InMem"));
-
-          }
            
             //register interface, & its concrete implementation
             //if client asks for IPlatformRepo, give them PlatformRepo
@@ -83,7 +71,7 @@ namespace PlatformService
                 endpoints.MapControllers();
             });
 
-          PrepDB.PrepPopulation(app, env.IsProduction());
+       
         }
     }
 }
