@@ -1,4 +1,0 @@
-stats_folder << stats_detail << more details on a Transaction
---transaction entries
-
-query to return total premium per risk type per year
