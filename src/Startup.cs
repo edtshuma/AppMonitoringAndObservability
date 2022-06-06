@@ -33,21 +33,13 @@ namespace PlatformService
       
         public void ConfigureServices(IServiceCollection services )
         {
-
-           
-            //register interface, & its concrete implementation
-            //if client asks for IPlatformRepo, give them PlatformRepo
-            services.AddScoped<IPlatformRepo, PlatformRepo>();
-            services.AddHttpClient<ICommandDataClient, CommandDataClient>();
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            services.AddControllers();
-            services.AddSingleton<IMessageBusClient, MessageBusClient>();
+      
+            services.AddControllers();       
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PlatformService", Version = "v1" });
             });
- 
-            Console.WriteLine($"--> CommandService Endpoint {Configuration["CommandService"]}");
+         
         }
 
         
