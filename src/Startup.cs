@@ -11,11 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using PlatformService.Data;
-using PlatformService.Models;
-using PlatformService.SyncDataService.Http;
-using PlatformsService.SyncDataService.Http;
-using PlatformService.AsyncDataServices;
+
 
 namespace PlatformService
 {
