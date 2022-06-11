@@ -1,0 +1,4 @@
+include:
+  - project: 'Orion/DevOps/devsecops'
+    ref: dotnet6
+    file: 'labs/.template.yml'
