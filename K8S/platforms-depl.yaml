@@ -14,12 +14,15 @@ spec:
     spec:
       containers:
         - name: platformservice
-          image: golide/platformservice:0.0.3 
+          image: golide/platformservice:0.1.5
+          imagePullPolicy: "IfNotPresent"
+          ports:
+            - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: platforms-clusterip-srv
+  name: clusterip-srv
 spec:
   type: ClusterIP
   selector:
