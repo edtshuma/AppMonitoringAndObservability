@@ -20,7 +20,7 @@ namespace RegistrationAPI.Controllers
 {
     [Authorize]
     [ApiController]
-    [Route("[controller]")]
+    [Route("bpi/[controller]")]
     public class UsersController : ControllerBase
     {
         private IUserService _userService;
