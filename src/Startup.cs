@@ -1,5 +1,5 @@
 using AutoMapper;
-//using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -38,16 +38,16 @@ namespace RegistrationAPI
         public void ConfigureServices(IServiceCollection services)
         {
              
-            // if (_env.IsProduction()){
-            //      Console.WriteLine ("--> Using SqlSvr");
-            //     services.AddDbContext<DataContext>(opt =>
-            //     opt.UseSqlServer(_configuration.GetConnectionString("SqlSvrConn")));
-            // }           
-            // else {
-            //      Console.WriteLine ("--> Using SqlLite");
-            //      services.AddDbContext<DataContext>(opt =>
-            //      opt.UseInMemoryDatabase(("InMem")));
-            // }
+            if (_env.IsProduction()){
+                 Console.WriteLine ("--> Using SqlSvr");
+                services.AddDbContext<DataContext>(opt =>
+                opt.UseSqlServer(_configuration.GetConnectionString("SqlSvrConn")));
+            }           
+            else {
+                 Console.WriteLine ("--> Using SqlLite");
+                 services.AddDbContext<DataContext>(opt =>
+                 opt.UseInMemoryDatabase(("InMem")));
+            }
               
                           
            
@@ -63,41 +63,41 @@ namespace RegistrationAPI
             var appSettings = appSettingsSection.Get<AppSettings>();
             var key = Encoding.ASCII.GetBytes(appSettings.Secret);
             
-            // services.AddAuthentication(x =>
-            // {
-            //     x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //     x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            // })
-            // .AddJwtBearer(x =>
-            // {
-            //     x.Events = new JwtBearerEvents
-            //     {
-            //         OnTokenValidated = context =>
-            //         {
-            //             var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
-            //             var userId = int.Parse(context.Principal.Identity.Name);
-            //             var user = userService.GetById(userId);
-            //             if (user == null)
-            //             {
-            //                 // return unauthorized if user no longer exists
-            //                 context.Fail("Unauthorized");
-            //             }
-            //             return Task.CompletedTask;
-            //         }
-            //     };
-            //     x.RequireHttpsMetadata = false;
-            //     x.SaveToken = true;
-            //     x.TokenValidationParameters = new TokenValidationParameters
-            //     {
-            //         ValidateIssuerSigningKey = true,
-            //         IssuerSigningKey = new SymmetricSecurityKey(key),
-            //         ValidateIssuer = false,
-            //         ValidateAudience = false
-            //     };
-            // });
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(x =>
+            {
+                x.Events = new JwtBearerEvents
+                {
+                    OnTokenValidated = context =>
+                    {
+                        var userService = context.HttpContext.RequestServices.GetRequiredService<IUserService>();
+                        var userId = int.Parse(context.Principal.Identity.Name);
+                        var user = userService.GetById(userId);
+                        if (user == null)
+                        {
+                            // return unauthorized if user no longer exists
+                            context.Fail("Unauthorized");
+                        }
+                        return Task.CompletedTask;
+                    }
+                };
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = true;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
 
             // configure DI for application services
-          // services.AddScoped<IUserService, UserService>();
+          services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -112,10 +112,12 @@ namespace RegistrationAPI
                 .AllowAnyMethod()
                 .AllowAnyHeader());
 
-            //app.UseAuthentication();
-            //app.UseAuthorization();
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(endpoints => endpoints.MapControllers());
-            //PrepDB.PrepPopulation(app, env.IsProduction());
+            //
+             PrepDB.PrepPopulation(app, env.IsProduction());
+           
         }
     }
 }
