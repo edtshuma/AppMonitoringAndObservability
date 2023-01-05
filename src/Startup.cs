@@ -11,7 +11,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Prometheus;
+using RegistrationAPI.AppMetricsFiles;
 using RegistrationAPI.Helpers;
+using RegistrationAPI.Middleware;
 using RegistrationAPI.Models;
 using RegistrationAPI.Services;
 using System;
@@ -55,7 +57,7 @@ namespace RegistrationAPI
             // strongly-typed appsettings 
             var appSettingsSection = _configuration.GetSection("AppSettings");
             services.Configure<AppSettings>(appSettingsSection);
-
+            services.AddSingleton<MetricReporter>();
             //jwt
             var appSettings = appSettingsSection.Get<AppSettings>();
             var key = Encoding.ASCII.GetBytes(appSettings.Secret);
@@ -113,6 +115,7 @@ namespace RegistrationAPI
             app.UseAuthorization();
             //place b4 app.UseEndpoints() to avoid losing some metrics
             app.UseMetricServer();
+            app.UseMiddleware<ResponseMetricMiddleware>();
             app.UseEndpoints(endpoints => endpoints.MapControllers());
             //
              PrepDB.PrepPopulation(app, env.IsProduction());
