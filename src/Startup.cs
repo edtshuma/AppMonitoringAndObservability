@@ -3,19 +3,18 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Prometheus;
 using RegistrationAPI.Helpers;
 using RegistrationAPI.Models;
 using RegistrationAPI.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -48,9 +47,7 @@ namespace RegistrationAPI
                  services.AddDbContext<DataContext>(opt =>
                  opt.UseInMemoryDatabase(("InMem")));
             }
-              
-                          
-           
+                                             
             services.AddCors();
             services.AddControllers();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -114,6 +111,8 @@ namespace RegistrationAPI
 
             app.UseAuthentication();
             app.UseAuthorization();
+            //place b4 app.UseEndpoints() to avoid losing some metrics
+            app.UseMetricServer();
             app.UseEndpoints(endpoints => endpoints.MapControllers());
             //
              PrepDB.PrepPopulation(app, env.IsProduction());
