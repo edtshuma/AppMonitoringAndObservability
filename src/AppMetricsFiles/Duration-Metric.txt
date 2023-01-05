@@ -1,0 +1,72 @@
+
+# HELP request_duration_seconds The duration in seconds between the response to a request.
+# TYPE request_duration_seconds histogram
+request_duration_seconds_sum{status_code="200",method="GET",path="/api/weatherforecast"} 0.1903932
+request_duration_seconds_count{status_code="200",method="GET",path="/api/weatherforecast"} 3
+request_duration_seconds_bucket{status_code="200",method="GET",path="/api/weatherforecast",le="0.01"} 2
+request_duration_seconds_bucket{status_code="200",method="GET",path="/api/weatherforecast",le="0.02"} 2
+request_duration_seconds_bucket{status_code="200",method="GET",path="/api/weatherforecast",le="0.04"} 2
+request_duration_seconds_bucket{status_code="200",method="GET",path="/api/weatherforecast",le="0.08"} 2
+request_duration_seconds_bucket{status_code="200",method="GET",path="/api/weatherforecast",le="0.16"} 2
+request_duration_seconds_bucket{status_code="200",method="GET",path="/api/weatherforecast",le="0.32"} 3
+request_duration_seconds_bucket{status_code="200",method="GET",path="/api/weatherforecast",le="0.64"} 3
+request_duration_seconds_bucket{status_code="200",method="GET",path="/api/weatherforecast",le="1.28"} 3
+request_duration_seconds_bucket{status_code="200",method="GET",path="/api/weatherforecast",le="2.56"} 3
+request_duration_seconds_bucket{status_code="200",method="GET",path="/api/weatherforecast",le="5.12"} 3
+request_duration_seconds_bucket{status_code="200",method="GET",path="/api/weatherforecast",le="+Inf"} 3
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 6.390625
+# HELP process_num_threads Total number of threads
+# TYPE process_num_threads gauge
+process_num_threads 46
+# HELP prometheus_net_metric_instances Number of metric instances currently registered across all metric families.
+# TYPE prometheus_net_metric_instances gauge
+prometheus_net_metric_instances{metric_type="counter"} 5
+prometheus_net_metric_instances{metric_type="summary"} 0
+prometheus_net_metric_instances{metric_type="gauge"} 20
+prometheus_net_metric_instances{metric_type="histogram"} 1
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1672928527.243998
+# HELP prometheus_net_eventcounteradapter_sources_connected_total Number of event sources that are currently connected to the adapter.
+# TYPE prometheus_net_eventcounteradapter_sources_connected_total gauge
+prometheus_net_eventcounteradapter_sources_connected_total 15
+# HELP process_open_handles Number of open handles
+# TYPE process_open_handles gauge
+process_open_handles 541
+# HELP prometheus_net_meteradapter_instruments_connected_total Number of instruments that are currently connected to the adapter.
+# TYPE prometheus_net_meteradapter_instruments_connected_total gauge
+prometheus_net_meteradapter_instruments_connected_total 0
+# HELP prometheus_net_metric_families Number of metric families currently registered.
+# TYPE prometheus_net_metric_families gauge
+prometheus_net_metric_families{metric_type="counter"} 3
+prometheus_net_metric_families{metric_type="summary"} 0
+prometheus_net_metric_families{metric_type="gauge"} 12
+prometheus_net_metric_families{metric_type="histogram"} 1
+# HELP dotnet_collection_count_total GC collection count
+# TYPE dotnet_collection_count_total counter
+dotnet_collection_count_total{generation="1"} 0
+dotnet_collection_count_total{generation="2"} 0
+dotnet_collection_count_total{generation="0"} 0
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 2225314295808
+# HELP total_requests The total number of requests serviced by this API.
+# TYPE total_requests counter
+total_requests 3
+# HELP dotnet_total_memory_bytes Total known allocated memory
+# TYPE dotnet_total_memory_bytes gauge
+dotnet_total_memory_bytes 14510440
+# HELP prometheus_net_metric_timeseries Number of metric timeseries currently generated from all metric instances.
+# TYPE prometheus_net_metric_timeseries gauge
+prometheus_net_metric_timeseries{metric_type="counter"} 5
+prometheus_net_metric_timeseries{metric_type="summary"} 0
+prometheus_net_metric_timeseries{metric_type="gauge"} 20
+prometheus_net_metric_timeseries{metric_type="histogram"} 13
+# HELP process_private_memory_bytes Process private memory size
+# TYPE process_private_memory_bytes gauge
+process_private_memory_bytes 94343168
+# HELP process_working_set_bytes Process working set
+# TYPE process_working_set_bytes gauge
+process_working_set_bytes 86544384
