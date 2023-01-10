@@ -91,6 +91,14 @@ namespace RegistrationAPI.Controllers
             }
         }
 
+        [AllowAnonymous]
+        [HttpPost("problem")]
+        public IActionResult Problem([FromBody] RegisterModel model)
+        {
+            //always returns HTTP 500 error      
+                return Problem();
+        }
+
         [HttpGet]
         public IActionResult GetAll()
         {
