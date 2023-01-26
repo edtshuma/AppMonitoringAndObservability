@@ -22,7 +22,7 @@ public class MetricReporter
         _responseTimeHistogram = Metrics.CreateHistogram("request_duration_seconds",
             "The duration in seconds between the response to a request.", new HistogramConfiguration
             {
-                Buckets = Histogram.ExponentialBuckets(0.01, 2, 10),
+                Buckets = new[] { 0.01, 0.025, 0.05, 0.1, 0.25, 0.5, 1, 2.5, 5, 10  },
                 LabelNames = new[] { "status_code", "method" , "path"}
             });
     }
