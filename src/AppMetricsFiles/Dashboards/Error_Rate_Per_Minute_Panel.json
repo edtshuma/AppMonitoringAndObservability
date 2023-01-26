@@ -1,0 +1,94 @@
+{
+    "id": 2,
+    "gridPos": {
+      "h": 9,
+      "w": 12,
+      "x": 12,
+      "y": 0
+    },
+    "type": "timeseries",
+    "title": "Error Rate Per Minute",
+    "datasource": {
+      "type": "prometheus",
+      "uid": "tPTcOk2Vk"
+    },
+    "description": "Ratio of the error rate over the past 1 minute to the error rate over the previous minute",
+    "fieldConfig": {
+      "defaults": {
+        "custom": {
+          "drawStyle": "line",
+          "lineInterpolation": "linear",
+          "barAlignment": 0,
+          "lineWidth": 1,
+          "fillOpacity": 0,
+          "gradientMode": "none",
+          "spanNulls": false,
+          "showPoints": "auto",
+          "pointSize": 5,
+          "stacking": {
+            "mode": "none",
+            "group": "A"
+          },
+          "axisPlacement": "auto",
+          "axisLabel": "",
+          "axisColorMode": "text",
+          "scaleDistribution": {
+            "type": "linear"
+          },
+          "axisCenteredZero": false,
+          "hideFrom": {
+            "tooltip": false,
+            "viz": false,
+            "legend": false
+          },
+          "thresholdsStyle": {
+            "mode": "off"
+          }
+        },
+        "color": {
+          "mode": "palette-classic"
+        },
+        "mappings": [],
+        "thresholds": {
+          "mode": "absolute",
+          "steps": [
+            {
+              "color": "green",
+              "value": null
+            },
+            {
+              "color": "red",
+              "value": 80
+            }
+          ]
+        },
+        "unit": "percent"
+      },
+      "overrides": []
+    },
+    "options": {
+      "tooltip": {
+        "mode": "single",
+        "sort": "none"
+      },
+      "legend": {
+        "showLegend": true,
+        "displayMode": "list",
+        "placement": "bottom",
+        "calcs": []
+      }
+    },
+    "targets": [
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "tPTcOk2Vk"
+        },
+        "editorMode": "code",
+        "expr": "rate(request_duration_seconds_count{status_code!=\"200\"}[1m])/rate(request_duration_seconds_count{status_code!=\"200\"}[1m] offset 1m)",
+        "legendFormat": "__auto",
+        "range": true,
+        "refId": "A"
+      }
+    ]
+  }

@@ -1,0 +1,64 @@
+{
+    "id": 8,
+    "gridPos": {
+      "h": 8,
+      "w": 12,
+      "x": 0,
+      "y": 0
+    },
+    "type": "gauge",
+    "title": "Error Rate Percentage",
+    "datasource": {
+      "type": "prometheus",
+      "uid": "tPTcOk2Vk"
+    },
+    "pluginVersion": "9.3.2",
+    "fieldConfig": {
+      "defaults": {
+        "mappings": [],
+        "thresholds": {
+          "mode": "absolute",
+          "steps": [
+            {
+              "color": "green",
+              "value": null
+            },
+            {
+              "color": "red",
+              "value": 20
+            }
+          ]
+        },
+        "color": {
+          "mode": "thresholds"
+        },
+        "unit": "percent"
+      },
+      "overrides": []
+    },
+    "options": {
+      "reduceOptions": {
+        "values": false,
+        "calcs": [
+          "lastNotNull"
+        ],
+        "fields": ""
+      },
+      "orientation": "auto",
+      "showThresholdLabels": false,
+      "showThresholdMarkers": true
+    },
+    "targets": [
+      {
+        "datasource": {
+          "type": "prometheus",
+          "uid": "tPTcOk2Vk"
+        },
+        "editorMode": "code",
+        "expr": "sum(increase(request_duration_seconds_count{status_code!=\"200\"}[1m]))/sum(increase(request_duration_seconds_count[1m])) *100\r\n",
+        "legendFormat": "__auto",
+        "range": true,
+        "refId": "A"
+      }
+    ]
+  }
