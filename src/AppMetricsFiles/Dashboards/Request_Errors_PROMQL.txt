@@ -1,0 +1,14 @@
+METRIC : Request Error Rate Minute on Minute
+
+rate(request_duration_seconds_count{status_code="500"}[1m]) /rate(request_duration_seconds_count{status_code="500"}[1m] offset 1m)
+
+
+
+METRIC : Percentage Error Rate  
+
+sum(increase(request_duration_seconds_count{status_code!="200"}[1m]) by path)/sum(increase(request_duration_seconds_count[1m])) *100
+
+
+METRIC : Percentage Error Rate By Endpoint
+
+(sum(rate(request_duration_seconds_count{status_code!="200"}[1m])) by (path))/(sum(rate(request_duration_seconds_count[1m])) by (path))
