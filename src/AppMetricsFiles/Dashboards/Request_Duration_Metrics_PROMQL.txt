@@ -13,12 +13,9 @@ histogram_quantile(0.50, sum(rate(request_duration_seconds_bucket[1m])) by (le, 
 METRIC : Request Duration Percentile by Endpoint and Status Code
 
 histogram_quantile(0.99, sum(rate(request_duration_seconds_bucket[1m])) by (le, path, status_code))
-histogram_quantile(0.75, sum(rate(request_duration_seconds_bucket[1m])) by (le, path, status_code))
-histogram_quantile(0.50, sum(rate(request_duration_seconds_bucket[1m])) by (le, path, status_code))
-
+histogram_quantile(0.9, sum(rate(request_duration_seconds_bucket[1m])) by (le, path, status_code))
 
 METRIC : Request Duration Percentile by Endpoint 
 
 histogram_quantile(0.99, sum(rate(request_duration_seconds_bucket[1m])) by (le, path))
-histogram_quantile(0.75, sum(rate(request_duration_seconds_bucket[1m])) by (le, path))
-histogram_quantile(0.50, sum(rate(request_duration_seconds_bucket[1m])) by (le, path))
+histogram_quantile(0.9, sum(rate(request_duration_seconds_bucket[1m])) by (le, path))
