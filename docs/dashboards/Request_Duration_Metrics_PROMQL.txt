@@ -6,9 +6,13 @@ sum(rate(request_duration_seconds_sum[1m]))/sum(rate(request_duration_seconds_co
 METRIC : Request Duration Percentile by Status Code
 
 histogram_quantile(0.99, sum(rate(request_duration_seconds_bucket[1m])) by (le, status_code))
-histogram_quantile(0.75, sum(rate(request_duration_seconds_bucket[1m])) by (le, status_code))
-histogram_quantile(0.50, sum(rate(request_duration_seconds_bucket[1m])) by (le, status_code))
+histogram_quantile(0.90, sum(rate(request_duration_seconds_bucket[1m])) by (le, status_code))
 
+
+METRIC: Maximum/Minimum Request Durations Attained Minute on Minute
+
+histogram_quantile(1, increase(request_duration_seconds_bucket[1m]))
+histogram_quantile(0, increase(request_duration_seconds_bucket[1m]))
 
 METRIC : Request Duration Percentile by Endpoint and Status Code
 
